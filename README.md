@@ -4,7 +4,7 @@ theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic
 that uses the color palette of the current [National Geographic photo of the day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
 
 ## Requirements
-* Firefox 57 (Quantum) and above
+* Firefox 60 and above
 
 ## Other Themes
 * [Containers Theme](https://addons.mozilla.org/en-US/firefox/addon/containers-theme/): changes the theme color to match the active [container tab](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
