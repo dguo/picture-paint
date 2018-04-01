@@ -1,7 +1,7 @@
 # Picture Brush
-A [dyanmic Firefox
+A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
-that uses the color palette of the current [National Geographic photo of the day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
+that uses the color palette of the current [National Geographic Photo of the Day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
 
 ## Requirements
 * Firefox 60 and above
