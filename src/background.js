@@ -43,8 +43,7 @@ async function updateTheme() {
             toolbar_field_text: fontColorContrast(toolbarFieldColor),
             toolbar_top_separator: separatorColor,
             toolbar_bottom_separator: separatorColor,
-            toolbar_field_border: separatorColor,
-            toolbar_vertical_separator: separatorColor
+            toolbar_field_border: separatorColor
         }
     };
 
