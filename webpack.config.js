@@ -2,7 +2,7 @@ const config = {
     entry: {
         background: './src/background.js'
     },
-    mode: 'production',
+    devtool: 'inline-source-map',
     output: {
         filename: '[name].js',
         path: __dirname + '/dist'

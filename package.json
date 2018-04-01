@@ -16,8 +16,8 @@
         "url": "https://github.com/dguo/picture-paint.git"
     },
     "scripts": {
-        "build": "yarn run clean && webpack",
-        "build:watch": "yarn run clean && webpack --watch",
+        "build": "yarn run clean && webpack --mode=development",
+        "build:watch": "yarn run clean && webpack --mode=development --watch",
         "clean": "rimraf dist",
         "format": "prettier --write \"./**/*.{json,js}\"",
         "format:check": "prettier --list-different \"./**/*.{json,js}\"",
@@ -26,7 +26,9 @@
         "start": "yarn install && yarn run build:watch"
     },
     "dependencies": {
-        "font-color-contrast": "^1.0.3"
+        "font-color-contrast": "^1.0.3",
+        "image-promise": "^5.0.1",
+        "image-q": "^2.1.2"
     },
     "devDependencies": {
         "eslint": "^4.19.1",
