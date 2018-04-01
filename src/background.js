@@ -12,7 +12,8 @@ function getSmallestSizePath(sizes) {
 }
 
 async function getNatGeoPhoto() {
-    const url = 'https://www.nationalgeographic.com/photography/photo-of-the-day/_jcr_content/.gallery.json';
+    const url =
+        'https://www.nationalgeographic.com/photography/photo-of-the-day/_jcr_content/.gallery.json';
     const response = await fetch(url);
     const json = await response.json();
     // console.log(json);
@@ -25,11 +26,12 @@ async function updateTheme() {
     const natGeoUrl = await getNatGeoPhoto();
     const image = await loadImage(natGeoUrl);
     const pointContainer = iq.utils.PointContainer.fromHTMLImageElement(image);
-    const palette = await iq.buildPalette([pointContainer], {colors: 3});
+    const palette = await iq.buildPalette([pointContainer], {colors: 4});
     const colors = palette._pointArray;
     const accentColor = [colors[0].r, colors[0].g, colors[0].b];
     const toolbarColor = [colors[1].r, colors[1].g, colors[1].b];
     const toolbarFieldColor = [colors[2].r, colors[2].g, colors[2].b];
+    const separatorColor = [colors[3].r, colors[3].g, colors[3].b];
 
     const theme = {
         colors: {
@@ -38,7 +40,11 @@ async function updateTheme() {
             toolbar: toolbarColor,
             toolbar_text: fontColorContrast(toolbarColor),
             toolbar_field: toolbarFieldColor,
-            toolbar_field_text: fontColorContrast(toolbarFieldColor)
+            toolbar_field_text: fontColorContrast(toolbarFieldColor),
+            toolbar_top_separator: separatorColor,
+            toolbar_bottom_separator: separatorColor,
+            toolbar_field_border: separatorColor,
+            toolbar_vertical_separator: separatorColor
         }
     };
 
