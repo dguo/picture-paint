@@ -1,0 +1,57 @@
+{
+    "name": "picture-paint",
+    "version": "0.1.0",
+    "description": "Dynamic Firefox theme",
+    "homepage": "https://github.com/dguo/picture-paint",
+    "bugs": "https://github.com/dguo/picture-paint/issues",
+    "license": "MIT",
+    "private": true,
+    "author": {
+        "name": "Danny Guo",
+        "email": "dannyguo91@gmail.com",
+        "url": "https://dannyguo.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dguo/picture-paint.git"
+    },
+    "scripts": {
+        "build": "yarn run clean && webpack",
+        "build:watch": "yarn run clean && webpack --watch",
+        "clean": "rimraf dist",
+        "format": "prettier --write \"./**/*.{json,js}\"",
+        "format:check": "prettier --list-different \"./**/*.{json,js}\"",
+        "lint": "eslint src/**/*",
+        "prepublishOnly": "yarn run format && yarn run lint && yarn run build",
+        "start": "yarn install && yarn run build:watch"
+    },
+    "dependencies": {
+        "font-color-contrast": "^1.0.3"
+    },
+    "devDependencies": {
+        "eslint": "^4.19.1",
+        "eslint-config-prettier": "^2.9.0",
+        "prettier": "^1.11.1",
+        "webpack": "^4.2.0",
+        "webpack-cli": "^2.0.13"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "commonjs": true,
+            "webextensions": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "prettier"
+        ],
+        "parserOptions": {
+            "ecmaVersion": 8
+        }
+    },
+    "prettier": {
+        "bracketSpacing": false,
+        "singleQuote": true,
+        "tabWidth": 4
+    }
+}
