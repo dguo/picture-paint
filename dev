@@ -26,9 +26,9 @@ def format(args, remaining):
 def lint(args, remaining):
     return run(DOCKER_RUN + ['yarn', 'run', 'lint']).returncode
 
-@command('Run before committing')
-def precommit(args, remaining):
-    return run(DOCKER_RUN + ['yarn', 'run', 'prepublishOnly']).returncode
+@command('Generate a zip file for releasing')
+def release(args, remaining):
+    return run(DOCKER_RUN + ['yarn', 'run', 'release']).returncode
 
 @command('Bring up a shell')
 def sh(args, remaining):
