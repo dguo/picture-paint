@@ -2,6 +2,8 @@
 A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
 that uses the color palette of the current [National Geographic Photo of the Day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
+The theme automatically updates every day, and you can click the toolbar button to
+see the picture and click through to the National Geographic page.
 
 ## Gallery
 ![blue](https://i.imgur.com/hn6DOl4.png)
@@ -14,6 +16,17 @@ that uses the color palette of the current [National Geographic Photo of the Day
 
 ## Requirements
 * Firefox 60 and above
+
+## Build Instructions
+I use the Node version specified in `.nvmrc`. Run `$ yarn install && yarn run
+build:release`. This should generate the final JavaScript files and place
+them in `extension/js`.
+
+To generate a ZIP file for uploading to the [Firefox Add-ons
+site](https://addons.mozilla.org/), run `$ yarn run release`.
+
+If you have Python 3 and Docker, you can also run `$ ./dev` for a development
+CLI.
 
 ## Other Themes
 * [Containers Theme](https://addons.mozilla.org/en-US/firefox/addon/containers-theme/): changes the theme color to match the active [container tab](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
