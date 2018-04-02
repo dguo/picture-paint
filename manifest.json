@@ -10,7 +10,7 @@
             "strict_min_version": "60.0a1"
         }
     },
-    "permissions": ["<all_urls>", "alarms", "theme"],
+    "permissions": ["<all_urls>", "alarms", "storage", "theme"],
     "background": {
         "scripts": ["dist/background.js"]
     }

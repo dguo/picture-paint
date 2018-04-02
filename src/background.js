@@ -17,9 +17,15 @@ async function getNatGeoPhoto() {
     const response = await fetch(url);
     const json = await response.json();
     // console.log(json);
-    const currentPhoto = json.items[0];
-    const path = getSmallestSizePath(currentPhoto.sizes);
-    return `${currentPhoto.url}${path}`;
+    const photo = json.items[0];
+    console.log(photo);
+    const path = getSmallestSizePath(photo.sizes);
+    return {
+        credit: photo.credit,
+        imageUrl: `${photo.url}${path}`,
+        pageUrl: photo.pageUrl,
+        title: photo.title
+    };
 }
 
 function pointToRgb(point) {
@@ -27,8 +33,15 @@ function pointToRgb(point) {
 }
 
 async function updateTheme() {
-    const natGeoUrl = await getNatGeoPhoto();
-    const image = await loadImage(natGeoUrl);
+    const picture = await getNatGeoPhoto();
+
+    // Don't do anything if the Photo of the Day hasn't changed yet
+    const storedPicture = await browser.storage.local.get('picture');
+    if (storedPicture && storedPicture.pageUrl === picture.pageUrl) {
+        return;
+    }
+
+    const image = await loadImage(picture.imageUrl);
     const pointContainer = iq.utils.PointContainer.fromHTMLImageElement(image);
     const palette = await iq.buildPalette([pointContainer], {colors: 4});
     const points = palette._pointArray;
@@ -53,9 +66,10 @@ async function updateTheme() {
 
     // console.log('theme:', theme);
     browser.theme.update(theme);
+    browser.storage.local.set({picture});
 }
 
 updateTheme();
 
 browser.alarms.onAlarm.addListener(updateTheme);
-browser.alarms.create('updateTheme', {periodInMinutes: 720});
+browser.alarms.create('updateTheme', {periodInMinutes: 240});
