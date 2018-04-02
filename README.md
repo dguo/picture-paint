@@ -3,6 +3,15 @@ A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
 that uses the color palette of the current [National Geographic Photo of the Day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
 
+## Gallery
+![blue](https://i.imgur.com/hn6DOl4.png)
+---
+![green](https://i.imgur.com/2xNfcQ8.png)
+---
+![brown](https://i.imgur.com/vCHtdA2.png)
+---
+![red](https://i.imgur.com/JaDy3lV.png)
+
 ## Requirements
 * Firefox 60 and above
 
