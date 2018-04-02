@@ -5,10 +5,26 @@ body {
 img {
     border-radius: 4px;
     height: auto;
-    margin-top: 1.2rem;
     width: 100%;
 }
 
 h1, cite {
     text-align: center;
+}
+
+h1 {
+    margin-bottom: 0.2rem;
+}
+
+cite {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #0060df;
+}
+
+a:hover {
+    text-decoration: underline;
 }
