@@ -1,11 +1,12 @@
 const config = {
     entry: {
-        background: './src/background.js'
+        background: './src/background.js',
+        popup: './src/popup.js'
     },
     devtool: 'inline-source-map',
     output: {
         filename: '[name].js',
-        path: __dirname + '/dist'
+        path: __dirname + '/extension/js'
     }
 };
 

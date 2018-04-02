@@ -4,11 +4,11 @@ const fontColorContrast = require('font-color-contrast');
 const loadImage = require('image-promise');
 const iq = require('image-q');
 
-function getSmallestSizePath(sizes) {
+function getSizePaths(sizes) {
     const sorted = Object.keys(sizes).sort((a, b) => parseInt(a) - parseInt(b));
-    const smallestSize = sorted[0];
-    const path = sizes[smallestSize];
-    return path;
+    const smallPath = sizes[sorted[0]];
+    const largePath = sizes[sorted[sorted.length - 1]];
+    return [smallPath, largePath];
 }
 
 async function getNatGeoPhoto() {
@@ -19,10 +19,13 @@ async function getNatGeoPhoto() {
     // console.log(json);
     const photo = json.items[0];
     console.log(photo);
-    const path = getSmallestSizePath(photo.sizes);
+    const [smallPath, largePath] = getSizePaths(photo.sizes);
     return {
+        altText: photo.altText,
+        caption: photo.caption,
         credit: photo.credit,
-        imageUrl: `${photo.url}${path}`,
+        smallImageUrl: `${photo.url}${smallPath}`,
+        largeImageUrl: `${photo.url}${largePath}`,
         pageUrl: photo.pageUrl,
         title: photo.title
     };
@@ -41,7 +44,7 @@ async function updateTheme() {
         return;
     }
 
-    const image = await loadImage(picture.imageUrl);
+    const image = await loadImage(picture.smallImageUrl);
     const pointContainer = iq.utils.PointContainer.fromHTMLImageElement(image);
     const palette = await iq.buildPalette([pointContainer], {colors: 4});
     const points = palette._pointArray;

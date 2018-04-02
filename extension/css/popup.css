@@ -1,0 +1,14 @@
+body {
+    padding: 0.2rem 1.5rem;
+}
+
+img {
+    border-radius: 4px;
+    height: auto;
+    margin-top: 1.2rem;
+    width: 100%;
+}
+
+h1, cite {
+    text-align: center;
+}

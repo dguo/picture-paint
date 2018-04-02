@@ -12,6 +12,11 @@
     },
     "permissions": ["<all_urls>", "alarms", "storage", "theme"],
     "background": {
-        "scripts": ["dist/background.js"]
+        "scripts": ["js/background.js"]
+    },
+    "browser_action": {
+        "browser_style": true,
+        "default_title": "Picture Paint",
+        "default_popup": "html/popup.html"
     }
 }
