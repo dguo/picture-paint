@@ -1,4 +1,4 @@
-# Picture Brush
+# Picture Brush [![Build Status](https://travis-ci.org/dguo/picutre-paint.svg?branch=master)](https://travis-ci.org/dguo/picture-paint)
 A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
 that uses the color palette of the current [National Geographic Photo of the Day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
