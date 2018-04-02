@@ -22,16 +22,20 @@ async function getNatGeoPhoto() {
     return `${currentPhoto.url}${path}`;
 }
 
+function pointToRgb(point) {
+    return point.rgba.slice(0, 3);
+}
+
 async function updateTheme() {
     const natGeoUrl = await getNatGeoPhoto();
     const image = await loadImage(natGeoUrl);
     const pointContainer = iq.utils.PointContainer.fromHTMLImageElement(image);
     const palette = await iq.buildPalette([pointContainer], {colors: 4});
-    const colors = palette._pointArray;
-    const accentColor = [colors[0].r, colors[0].g, colors[0].b];
-    const toolbarColor = [colors[1].r, colors[1].g, colors[1].b];
-    const toolbarFieldColor = [colors[2].r, colors[2].g, colors[2].b];
-    const separatorColor = [colors[3].r, colors[3].g, colors[3].b];
+    const points = palette._pointArray;
+    const accentColor = pointToRgb(points[0]);
+    const toolbarColor = pointToRgb(points[1]);
+    const toolbarFieldColor = pointToRgb(points[2]);
+    const separatorColor = pointToRgb(points[3]);
 
     const theme = {
         colors: {
