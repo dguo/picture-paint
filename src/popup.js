@@ -1,3 +1,5 @@
+const sanitizeHtml = require('sanitize-html');
+
 (async function loadCurrentPicture() {
     const items = await browser.storage.local.get('picture');
     const picture = items.picture;
@@ -15,5 +17,7 @@
     image.src = picture.largeImageUrl;
     image.alt = picture.altText;
 
-    document.getElementById('caption').innerHTML = picture.caption;
+    document.getElementById('caption').innerHTML = sanitizeHtml(
+        picture.caption
+    );
 })();

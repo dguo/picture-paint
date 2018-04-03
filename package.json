@@ -29,7 +29,8 @@
     "dependencies": {
         "font-color-contrast": "^1.0.3",
         "image-promise": "^5.0.1",
-        "image-q": "^2.1.2"
+        "image-q": "^2.1.2",
+        "sanitize-html": "^1.18.2"
     },
     "devDependencies": {
         "eslint": "^4.19.1",
