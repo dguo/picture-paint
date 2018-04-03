@@ -28,7 +28,13 @@ def lint(args, remaining):
 
 @command('Generate a zip file for releasing')
 def release(args, remaining):
-    return run(DOCKER_RUN + ['yarn', 'run', 'release']).returncode
+    rc = run(DOCKER_RUN + ['yarn', 'run', 'release']).returncode
+    if not rc:
+        rc = run(['git', 'archive', '-o' 'web-ext-artifacts/source-code.zip',
+                  'HEAD']).returncode
+        if not rc:
+            print('Updated the source code ZIP file')
+    return rc
 
 @command('Bring up a shell')
 def sh(args, remaining):
