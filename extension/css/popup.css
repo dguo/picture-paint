@@ -29,15 +29,20 @@ a:hover {
     text-decoration: underline;
 }
 
-#datepicker {
-    max-width: 80px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+#date {
+    text-align: center;
 }
 
-.picture-info {
-    visibility: hidden;
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+#datepicker {
+    max-width: 75px;
 }
 
 #loader {
@@ -45,4 +50,8 @@ a:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.picture-info {
+    visibility: hidden;
 }

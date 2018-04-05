@@ -4,6 +4,8 @@ const xss = require('xss');
 
 const paint = require('./paint');
 
+let publishDate;
+
 function toggleLoader(show) {
     document.getElementById('loader').style.display = show ? '' : 'none';
     document.querySelectorAll('.picture-info').forEach(elem => {
@@ -23,11 +25,50 @@ const picker = new Pikaday({
     }
 });
 
+function checkNextDateButton() {
+    const nextButton = document.getElementById('nextDate');
+
+    const now = moment();
+    if (
+        now.year() === publishDate.year() &&
+        now.month() === publishDate.month() &&
+        now.date() === publishDate.date()
+    ) {
+        nextButton.disabled = true;
+    } else {
+        nextButton.disabled = false;
+    }
+}
+
+function pageDate(back) {
+    if (!publishDate) {
+        return;
+    }
+
+    if (back) {
+        publishDate.subtract(1, 'days');
+    } else {
+        publishDate.add(1, 'days');
+    }
+
+    picker.setMoment(publishDate);
+}
+
+document.getElementById('previousDate').onclick = () => {
+    pageDate(true);
+};
+
+document.getElementById('nextDate').onclick = () => {
+    pageDate(false);
+};
+
 async function loadPicture() {
     const items = await browser.storage.local.get('picture');
     const picture = items.picture;
 
-    picker.setMoment(moment(picture.publishDate), true);
+    publishDate = moment(picture.publishDate);
+    checkNextDateButton();
+    picker.setMoment(publishDate, true);
 
     const title = document.getElementById('title');
     title.innerText = picture.title;
