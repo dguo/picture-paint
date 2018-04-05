@@ -4,11 +4,17 @@ const xss = require('xss');
 
 const paint = require('./paint');
 
-async function loadCurrentPicture(picture) {
-    if (!picture) {
-        const items = await browser.storage.local.get('picture');
-        picture = items.picture;
-    }
+function toggleLoader(show) {
+    document.getElementById('loader').style.display = show ? '' : 'none';
+    document.querySelectorAll('.picture-info').forEach(elem => {
+        elem.style.visibility = show ? 'hidden' : 'visible';
+    });
+}
+
+async function loadPicture() {
+    const items = await browser.storage.local.get('picture');
+    const picture = items.picture;
+    toggleLoader(false);
 
     const title = document.getElementById('title');
     title.innerText = picture.title;
@@ -23,15 +29,16 @@ async function loadCurrentPicture(picture) {
     document.getElementById('caption').innerHTML = xss(picture.caption);
 }
 
-loadCurrentPicture();
+loadPicture();
 
 new Pikaday({
     field: document.getElementById('datepicker'),
     maxDate: moment().toDate(),
     onSelect: async date => {
+        toggleLoader(true);
         const isoDate = moment(date).format('YYYY-MM-DD');
         const picture = await paint.getNatGeoPhoto(isoDate);
         await paint.setTheme(picture);
-        loadCurrentPicture(picture);
+        loadPicture();
     }
 });

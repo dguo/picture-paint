@@ -13,8 +13,7 @@ function getSizePaths(sizes) {
 // If provided, the date should be in 'yyyy-mm-dd' format
 async function getNatGeoPhoto(date) {
     const yearAndMonth = date ? `.${date.substring(0, 8)}` : '';
-    const url =
-        `https://www.nationalgeographic.com/photography/photo-of-the-day/_jcr_content/.gallery${yearAndMonth}.json`;
+    const url = `https://www.nationalgeographic.com/photography/photo-of-the-day/_jcr_content/.gallery${yearAndMonth}.json`;
     const response = await fetch(url);
     const json = await response.json();
     console.log(json);

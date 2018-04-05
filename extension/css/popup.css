@@ -31,4 +31,18 @@ a:hover {
 
 #datepicker {
     max-width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.picture-info {
+    visibility: hidden;
+}
+
+#loader {
+    max-width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
