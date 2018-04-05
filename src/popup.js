@@ -4,6 +4,10 @@ const xss = require('xss');
 
 const paint = require('./paint');
 
+// It seems like before this date, months don't reliably have
+// a Picture of the Day for every day.
+const MIN_DATE = moment('2010-08-01');
+
 let publishDate;
 
 function toggleLoader(show) {
@@ -15,6 +19,7 @@ function toggleLoader(show) {
 
 const picker = new Pikaday({
     field: document.getElementById('datepicker'),
+    minDate: MIN_DATE.toDate(),
     maxDate: moment().toDate(),
     onSelect: async date => {
         toggleLoader(true);
@@ -25,19 +30,19 @@ const picker = new Pikaday({
     }
 });
 
-function checkNextDateButton() {
-    const nextButton = document.getElementById('nextDate');
+function checkPagerButtons() {
+    const previousButton = document.getElementById('previousDate');
+    previousButton.disabled =
+        MIN_DATE.year() === publishDate.year() &&
+        MIN_DATE.month() === publishDate.month() &&
+        MIN_DATE.date() === publishDate.date();
 
+    const nextButton = document.getElementById('nextDate');
     const now = moment();
-    if (
+    nextButton.disabled =
         now.year() === publishDate.year() &&
         now.month() === publishDate.month() &&
-        now.date() === publishDate.date()
-    ) {
-        nextButton.disabled = true;
-    } else {
-        nextButton.disabled = false;
-    }
+        now.date() === publishDate.date();
 }
 
 function pageDate(back) {
@@ -67,7 +72,7 @@ async function loadPicture() {
     const picture = items.picture;
 
     publishDate = moment(picture.publishDate);
-    checkNextDateButton();
+    checkPagerButtons();
     picker.setMoment(publishDate, true);
 
     const title = document.getElementById('title');
