@@ -38,6 +38,7 @@ a:hover {
 
 #date {
     text-align: center;
+    visibility: hidden;
 }
 
 button:hover {

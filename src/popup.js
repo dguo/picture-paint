@@ -12,9 +12,14 @@ let publishDate;
 
 function toggleLoader(show) {
     document.getElementById('loader').style.display = show ? '' : 'none';
+
     document.querySelectorAll('.picture-info').forEach(elem => {
         elem.style.visibility = show ? 'hidden' : 'visible';
     });
+
+    // It's hidden by CSS on the initial load, but it should always be
+    // visible afterwards.
+    document.getElementById('date').style.visibility = 'visible';
 }
 
 const picker = new Pikaday({
