@@ -29,8 +29,6 @@ async function loadPicture() {
 
     picker.setMoment(moment(picture.publishDate), true);
 
-    toggleLoader(false);
-
     const title = document.getElementById('title');
     title.innerText = picture.title;
     title.href = picture.pageUrl;
@@ -38,6 +36,9 @@ async function loadPicture() {
     document.getElementById('credit').innerText = `by ${picture.credit}`;
 
     const image = document.getElementById('image');
+    image.onload = () => {
+        toggleLoader(false);
+    };
     image.src = picture.largeImageUrl;
     image.alt = picture.altText;
 
