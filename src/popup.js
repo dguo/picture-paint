@@ -1,10 +1,12 @@
 const sanitizeHtml = require('sanitize-html');
+const Pikaday = require('pikaday');
 
-(async function loadCurrentPicture() {
-    const items = await browser.storage.local.get('picture');
-    const picture = items.picture;
+const paint = require('./paint');
+
+async function loadCurrentPicture(picture) {
     if (!picture) {
-        return;
+        const items = await browser.storage.local.get('picture');
+        picture = items.picture;
     }
 
     const title = document.getElementById('title');
@@ -20,4 +22,18 @@ const sanitizeHtml = require('sanitize-html');
     document.getElementById('caption').innerHTML = sanitizeHtml(
         picture.caption
     );
-})();
+}
+
+loadCurrentPicture();
+
+new Pikaday({
+    field: document.getElementById('datepicker'),
+    onSelect: async date => {
+        console.log(date);
+        const isoDate = date.toISOString().substring(0, 10);
+        console.log(isoDate);
+        const picture = await paint.getNatGeoPhoto(isoDate);
+        await paint.setTheme(picture);
+        loadCurrentPicture(picture);
+    }
+});

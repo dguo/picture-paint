@@ -28,3 +28,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+#datepicker {
+    max-width: 80px;
+}
