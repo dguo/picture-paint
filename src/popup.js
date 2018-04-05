@@ -1,4 +1,4 @@
-const sanitizeHtml = require('sanitize-html');
+const xss = require('xss');
 const Pikaday = require('pikaday');
 
 const paint = require('./paint');
@@ -19,9 +19,7 @@ async function loadCurrentPicture(picture) {
     image.src = picture.largeImageUrl;
     image.alt = picture.altText;
 
-    document.getElementById('caption').innerHTML = sanitizeHtml(
-        picture.caption
-    );
+    document.getElementById('caption').innerHTML = xss(picture.caption);
 }
 
 loadCurrentPicture();
