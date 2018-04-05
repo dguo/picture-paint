@@ -29,9 +29,7 @@ new Pikaday({
     field: document.getElementById('datepicker'),
     maxDate: moment().toDate(),
     onSelect: async date => {
-        console.log(date);
-        const isoDate = date.toISOString().substring(0, 10);
-        console.log(isoDate);
+        const isoDate = moment(date).format('YYYY-MM-DD');
         const picture = await paint.getNatGeoPhoto(isoDate);
         await paint.setTheme(picture);
         loadCurrentPicture(picture);
