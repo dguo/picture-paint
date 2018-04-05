@@ -48,22 +48,26 @@ async function setTheme(picture) {
     const pointContainer = iq.utils.PointContainer.fromHTMLImageElement(image);
     const palette = await iq.buildPalette([pointContainer], {colors: 4});
     const points = palette._pointArray;
-    const accentColor = pointToRgb(points[0]);
-    const toolbarColor = pointToRgb(points[1]);
-    const toolbarFieldColor = pointToRgb(points[2]);
-    const separatorColor = pointToRgb(points[3]);
+    const firstColor = pointToRgb(points[0]);
+    const secondColor = pointToRgb(points[1]);
+    const thirdColor = pointToRgb(points[2]);
+    const fourthColor = pointToRgb(points[3]);
 
     const theme = {
         colors: {
-            accentcolor: accentColor,
-            textcolor: fontColorContrast(accentColor),
-            toolbar: toolbarColor,
-            toolbar_text: fontColorContrast(toolbarColor),
-            toolbar_field: toolbarFieldColor,
-            toolbar_field_text: fontColorContrast(toolbarFieldColor),
-            toolbar_top_separator: separatorColor,
-            toolbar_bottom_separator: separatorColor,
-            toolbar_field_border: separatorColor
+            accentcolor: firstColor,
+            popup: secondColor,
+            popup_border: fourthColor,
+            popup_text: fontColorContrast(secondColor),
+            tab_line: fourthColor,
+            textcolor: fontColorContrast(firstColor),
+            toolbar: secondColor,
+            toolbar_bottom_separator: fourthColor,
+            toolbar_field: thirdColor,
+            toolbar_field_border: fourthColor,
+            toolbar_field_text: fontColorContrast(thirdColor),
+            toolbar_text: fontColorContrast(secondColor),
+            toolbar_top_separator: fourthColor
         }
     };
 
