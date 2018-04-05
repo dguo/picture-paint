@@ -32,6 +32,9 @@ async function getNatGeoPhoto(date) {
         smallImageUrl: `${photo.url}${smallPath}`,
         largeImageUrl: `${photo.url}${largePath}`,
         pageUrl: photo.pageUrl,
+        publishDate: moment(photo.publishDate, 'MMMM D, Y').format(
+            'YYYY-MM-DD'
+        ),
         title: photo.title
     };
 }

@@ -11,9 +11,24 @@ function toggleLoader(show) {
     });
 }
 
+const picker = new Pikaday({
+    field: document.getElementById('datepicker'),
+    maxDate: moment().toDate(),
+    onSelect: async date => {
+        toggleLoader(true);
+        const isoDate = moment(date).format('YYYY-MM-DD');
+        const picture = await paint.getNatGeoPhoto(isoDate);
+        await paint.setTheme(picture);
+        loadPicture();
+    }
+});
+
 async function loadPicture() {
     const items = await browser.storage.local.get('picture');
     const picture = items.picture;
+
+    picker.setMoment(moment(picture.publishDate), true);
+
     toggleLoader(false);
 
     const title = document.getElementById('title');
@@ -30,15 +45,3 @@ async function loadPicture() {
 }
 
 loadPicture();
-
-new Pikaday({
-    field: document.getElementById('datepicker'),
-    maxDate: moment().toDate(),
-    onSelect: async date => {
-        toggleLoader(true);
-        const isoDate = moment(date).format('YYYY-MM-DD');
-        const picture = await paint.getNatGeoPhoto(isoDate);
-        await paint.setTheme(picture);
-        loadPicture();
-    }
-});
