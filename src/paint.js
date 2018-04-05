@@ -62,9 +62,9 @@ async function setTheme(picture) {
     const theme = {
         colors: {
             accentcolor: firstColor,
-            popup: secondColor,
+            popup: thirdColor,
             popup_border: fourthColor,
-            popup_text: fontColorContrast(secondColor),
+            popup_text: fontColorContrast(thirdColor),
             tab_line: fourthColor,
             textcolor: fontColorContrast(firstColor),
             toolbar: secondColor,
