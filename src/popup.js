@@ -1,5 +1,6 @@
-const xss = require('xss');
+const moment = require('moment');
 const Pikaday = require('pikaday');
+const xss = require('xss');
 
 const paint = require('./paint');
 
@@ -26,6 +27,7 @@ loadCurrentPicture();
 
 new Pikaday({
     field: document.getElementById('datepicker'),
+    maxDate: moment().toDate(),
     onSelect: async date => {
         console.log(date);
         const isoDate = date.toISOString().substring(0, 10);
