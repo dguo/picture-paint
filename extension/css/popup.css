@@ -44,7 +44,8 @@ button:disabled {
 }
 
 #datepicker {
-    max-width: 75px;
+    max-width: 80px;
+    padding: 4px;
 }
 
 #loader {
