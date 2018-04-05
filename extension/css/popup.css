@@ -22,6 +22,11 @@ cite {
     margin-bottom: 1.5rem;
 }
 
+/* To cover the case where the credit is given as HTML rather than text. */
+cite * {
+    text-align: center;
+}
+
 a {
     text-decoration: none;
     color: #0060df;

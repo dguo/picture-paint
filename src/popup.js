@@ -74,7 +74,11 @@ async function loadPicture() {
     title.innerText = picture.title;
     title.href = picture.pageUrl;
 
-    document.getElementById('credit').innerText = `by ${picture.credit}`;
+    if (picture.credit.startsWith('<p>')) {
+        document.getElementById('credit').innerHTML = xss(picture.credit);
+    } else {
+        document.getElementById('credit').innerText = `by ${picture.credit}`;
+    }
 
     const image = document.getElementById('image');
     image.onload = () => {

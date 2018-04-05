@@ -24,13 +24,19 @@ async function getNatGeoPhoto(date) {
         photo = json.items.find(item => item.publishDate === targetPublishDate);
     }
     console.log(photo);
-    const [smallPath, largePath] = getSizePaths(photo.sizes);
+
+    let smallPath;
+    let largePath;
+    if (photo.sizes) {
+        [smallPath, largePath] = getSizePaths(photo.sizes);
+    }
+
     return {
         altText: photo.altText,
         caption: photo.caption,
         credit: photo.credit,
-        smallImageUrl: `${photo.url}${smallPath}`,
-        largeImageUrl: `${photo.url}${largePath}`,
+        smallImageUrl: smallPath ? `${photo.url}${smallPath}` : photo.url,
+        largeImageUrl: largePath ? `${photo.url}${largePath}` : photo.url,
         pageUrl: photo.pageUrl,
         publishDate: moment(photo.publishDate, 'MMMM D, Y').format(
             'YYYY-MM-DD'
