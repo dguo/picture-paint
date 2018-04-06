@@ -102,7 +102,7 @@ async function loadPicture() {
     title.innerText = picture.title;
     title.href = picture.pageUrl;
 
-    if (picture.credit.startsWith('<p>')) {
+    if (picture.credit.includes('</p>') || picture.credit.includes('</a>')) {
         document.getElementById('credit').innerHTML = xss(picture.credit);
     } else {
         document.getElementById('credit').innerText = `by ${picture.credit}`;

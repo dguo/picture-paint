@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 ### Fixed
 - Remove debugging console.logs
+- Handle HTML credit with no paragraph tag
 
 ## [0.2.0] - 2018-04-05
 ### Added
