@@ -4,18 +4,33 @@ theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic
 that uses the color palette of the current [National Geographic Photo of the Day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
 The theme automatically updates every day, and you can click the toolbar button
 to see the picture and click through to the National Geographic page. You can
-also view past pictures and themes by changing the date in the popup. Available
-in [Firefox
+also view [past
+pictures](https://www.nationalgeographic.com/photography/photo-of-the-day/archive/)
+and themes by changing the date in the popup. Available in [Firefox
 Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/).
 
 ## Gallery
-![blue](https://i.imgur.com/hn6DOl4.png)
+![lava](https://i.imgur.com/uSqHCKQ.png)
 ---
-![green](https://i.imgur.com/2xNfcQ8.png)
+Popup coloring:
+![popup coloring](https://i.imgur.com/IGzEXXK.png)
 ---
-![brown](https://i.imgur.com/vCHtdA2.png)
+Scroll for picture details:
+![picture details](https://i.imgur.com/22etI5f.png)
 ---
-![red](https://i.imgur.com/JaDy3lV.png)
+![lightning](https://i.imgur.com/FvIy7CI.png)
+---
+![orangutan](https://i.imgur.com/rbEluSY.png)
+---
+![desert](https://i.imgur.com/geh3MSi.png)
+---
+![giraffes and gazelles](https://i.imgur.com/qD7zAJR.png)
+---
+![marble caves](https://i.imgur.com/TnlmeBk.png)
+---
+![octopus](https://i.imgur.com/xMu1nZq.png)
+---
+![Golden Gate Bridge](https://i.imgur.com/g3bfzRd.png)
 
 ## Installation
 Firefox 60 and above is required. Install the extension from the
