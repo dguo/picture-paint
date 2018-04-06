@@ -22,7 +22,6 @@ function toggleLoader(show) {
     document.getElementById('date').style.visibility = 'visible';
 
     if (show) {
-        console.log('hiding error');
         document.getElementById('error-text').innerText = '';
         document.getElementById('error-message').style.display = 'none';
     }
@@ -49,7 +48,6 @@ const picker = new Pikaday({
             displayError('Failed to retrieve the image.');
             return;
         }
-        console.log('wtf');
         await paint.setTheme(picture);
         loadPicture();
     }
