@@ -54,6 +54,29 @@ button:disabled {
     padding: 4px;
 }
 
+#error-message {
+    background-color: #d70022;
+    border-radius: 4px;
+    color: #FFFFFF;
+    margin-top: 1rem;
+    padding: 10px;
+    display: none;
+}
+
+#error-icon {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    color: #d70022;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    display: inline-block;
+}
+
+#error-text {
+    display: inline-block;
+}
+
 #loader {
     max-width: 200px;
     display: block;

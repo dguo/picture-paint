@@ -20,6 +20,18 @@ function toggleLoader(show) {
     // It's hidden by CSS on the initial load, but it should always be
     // visible afterwards.
     document.getElementById('date').style.visibility = 'visible';
+
+    if (show) {
+        console.log('hiding error');
+        document.getElementById('error-text').innerText = '';
+        document.getElementById('error-message').style.display = 'none';
+    }
+}
+
+function displayError(message) {
+    toggleLoader(false);
+    document.getElementById('error-text').innerText = message;
+    document.getElementById('error-message').style.display = 'block';
 }
 
 const picker = new Pikaday({
@@ -29,20 +41,28 @@ const picker = new Pikaday({
     onSelect: async date => {
         toggleLoader(true);
         const isoDate = moment(date).format('YYYY-MM-DD');
-        const picture = await paint.getNatGeoPhoto(isoDate);
+        let picture;
+        try {
+            picture = await paint.getNatGeoPhoto(isoDate);
+        } catch (error) {
+            console.error(error);
+            displayError('Failed to retrieve the image.');
+            return;
+        }
+        console.log('wtf');
         await paint.setTheme(picture);
         loadPicture();
     }
 });
 
 function checkPagerButtons() {
-    const previousButton = document.getElementById('previousDate');
+    const previousButton = document.getElementById('previous-date');
     previousButton.disabled =
         MIN_DATE.year() === publishDate.year() &&
         MIN_DATE.month() === publishDate.month() &&
         MIN_DATE.date() === publishDate.date();
 
-    const nextButton = document.getElementById('nextDate');
+    const nextButton = document.getElementById('next-date');
     const now = moment();
     nextButton.disabled =
         now.year() === publishDate.year() &&
@@ -64,11 +84,11 @@ function pageDate(back) {
     picker.setMoment(publishDate);
 }
 
-document.getElementById('previousDate').onclick = () => {
+document.getElementById('previous-date').onclick = () => {
     pageDate(true);
 };
 
-document.getElementById('nextDate').onclick = () => {
+document.getElementById('next-date').onclick = () => {
     pageDate(false);
 };
 
@@ -93,6 +113,9 @@ async function loadPicture() {
     const image = document.getElementById('image');
     image.onload = () => {
         toggleLoader(false);
+    };
+    image.onerror = () => {
+        displayError('Failed to load the image.');
     };
     image.src = picture.largeImageUrl;
     image.alt = picture.altText;
