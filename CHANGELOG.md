@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [0.2.1] - 2018-04-06
 ### Fixed
 - Remove debugging console.logs
 - Handle HTML credit with no paragraph tag
@@ -24,5 +26,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Added
 - Initial implementation
 
-[Unreleased]: https://github.com/dguo/picture-paint/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/dguo/picture-paint/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/dguo/picture-paint/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/dguo/picture-paint/compare/v0.1.0...v0.2.0
