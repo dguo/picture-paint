@@ -25,6 +25,10 @@
             "96": "img/logo-96.png"
         },
         "default_title": "Picture Paint",
-        "default_popup": "html/popup.html"
+        "default_popup": "popup.html"
+    },
+    "options_ui": {
+        "page": "options.html",
+        "browser_style": true
     }
 }

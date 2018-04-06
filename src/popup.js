@@ -4,10 +4,6 @@ const xss = require('xss');
 
 const paint = require('./paint');
 
-// It seems like before this date, months don't reliably have
-// a Picture of the Day for every day.
-const MIN_DATE = moment('2010-08-01');
-
 let publishDate;
 
 function toggleLoader(show) {
@@ -35,8 +31,8 @@ function displayError(message) {
 
 const picker = new Pikaday({
     field: document.getElementById('datepicker'),
-    minDate: MIN_DATE.toDate(),
     maxDate: moment().toDate(),
+    minDate: paint.MIN_DATE.toDate(),
     onSelect: async date => {
         toggleLoader(true);
         const isoDate = moment(date).format('YYYY-MM-DD');
@@ -56,9 +52,9 @@ const picker = new Pikaday({
 function checkPagerButtons() {
     const previousButton = document.getElementById('previous-date');
     previousButton.disabled =
-        MIN_DATE.year() === publishDate.year() &&
-        MIN_DATE.month() === publishDate.month() &&
-        MIN_DATE.date() === publishDate.date();
+        paint.MIN_DATE.year() === publishDate.year() &&
+        paint.MIN_DATE.month() === publishDate.month() &&
+        paint.MIN_DATE.date() === publishDate.date();
 
     const nextButton = document.getElementById('next-date');
     const now = moment();

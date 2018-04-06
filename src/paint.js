@@ -3,6 +3,10 @@ const iq = require('image-q');
 const loadImage = require('image-promise');
 const moment = require('moment');
 
+// It seems like before this date, months don't reliably have
+// a Picture of the Day for every day.
+const MIN_DATE = moment('2010-08-01');
+
 function getSizePaths(sizes) {
     const sorted = Object.keys(sizes).sort((a, b) => parseInt(a) - parseInt(b));
     const smallPath = sizes[sorted[0]];
@@ -83,5 +87,6 @@ async function setTheme(picture) {
 
 module.exports = {
     getNatGeoPhoto,
+    MIN_DATE,
     setTheme
 };

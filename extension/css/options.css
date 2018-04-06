@@ -1,0 +1,27 @@
+#save-button {
+    margin-top: 10px;
+}
+
+#message {
+    border-radius: 4px;
+    margin-top: 1rem;
+    padding: 10px;
+    display: none;
+}
+
+#message-icon {
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    display: inline-block;
+}
+
+#message-text {
+    display: inline-block;
+}
+
+#loader {
+    margin-top: 10px;
+    max-width: 50px;
+}
