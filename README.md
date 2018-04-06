@@ -3,7 +3,8 @@ A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
 that uses the color palette of the current [National Geographic Photo of the Day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
 The theme automatically updates every day, and you can click the toolbar button
-to see the picture and click through to the National Geographic page. Available
+to see the picture and click through to the National Geographic page. You can
+also view past pictures and themes by changing the date in the popup. Available
 in [Firefox
 Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/).
 
@@ -17,9 +18,17 @@ Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/).
 ![red](https://i.imgur.com/JaDy3lV.png)
 
 ## Installation
-This extension requires Firefox 60 and above. Install it from the
+Firefox 60 and above is required. Install the extension from the
 [Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/) page.
 It might take a few seconds to process the image and then apply the theme.
+
+Note that it will need permission to "Access your data for all websites." This
+permission allows it to use the
+[canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) API to
+process the image and determine the color palette. As far as [I can
+tell](https://stackoverflow.com/a/49696532/1481479), there isn't a narrower
+permission that I can use instead. Nevertheless, Picture Paint does not read
+your browsing history or send your data anywhere.
 
 ## Build Instructions
 I use the Node version specified in `.nvmrc`. Run `$ yarn install && yarn run
