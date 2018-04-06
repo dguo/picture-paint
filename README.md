@@ -9,6 +9,10 @@ pictures](https://www.nationalgeographic.com/photography/photo-of-the-day/archiv
 and themes by changing the date in the popup. Available in [Firefox
 Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/).
 
+The color palette is determined by [color
+quantization](https://en.wikipedia.org/wiki/Color_quantization)
+using the [image-q](https://github.com/ibezkrovnyi/image-quantization) package.
+
 ## Gallery
 ![lava](https://i.imgur.com/uSqHCKQ.png)
 ---
