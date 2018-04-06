@@ -123,4 +123,10 @@ async function loadPicture() {
     document.getElementById('caption').innerHTML = xss(picture.caption);
 }
 
-loadPicture();
+browser.storage.local.get('picture').then(items => {
+    if (items.picture) {
+        loadPicture();
+    } else {
+        picker.setMoment(moment());
+    }
+});
