@@ -24,7 +24,7 @@ browser.alarms.onAlarm.addListener(() => {
 
 browser.storage.onChanged.addListener(changes => {
     if (changes.hasOwnProperty('lockDate')) {
-        if (changes.lockDate) {
+        if (changes.lockDate.newValue) {
             browser.alarms.clearAll();
         } else {
             createAlarm();
