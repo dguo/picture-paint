@@ -86,6 +86,11 @@ document.getElementById('next-date').onclick = () => {
     pageDate(false);
 };
 
+document.getElementById('preferences').onclick = () => {
+    browser.runtime.openOptionsPage();
+    window.close();
+};
+
 async function loadPicture() {
     const items = await browser.storage.local.get('picture');
     const picture = items.picture;

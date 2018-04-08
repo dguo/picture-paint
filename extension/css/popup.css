@@ -1,7 +1,7 @@
 body {
     background-color: #FFFFFF;
     color: #333;
-    padding: 0.2rem 1.5rem;
+    padding: 1.0rem;
 }
 
 img {
@@ -33,6 +33,7 @@ a {
 }
 
 a:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
@@ -86,4 +87,8 @@ button:disabled {
 
 .picture-info {
     visibility: hidden;
+}
+
+#preferences {
+    text-align: center;
 }
