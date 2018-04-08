@@ -52,6 +52,9 @@
             "eslint:recommended",
             "prettier"
         ],
+        "globals": {
+            "process": false
+        },
         "parserOptions": {
             "ecmaVersion": 8
         },

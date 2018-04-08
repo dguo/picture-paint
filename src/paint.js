@@ -20,14 +20,20 @@ async function getNatGeoPhoto(date) {
     const url = `https://www.nationalgeographic.com/photography/photo-of-the-day/_jcr_content/.gallery${yearAndMonth}.json`;
     const response = await fetch(url);
     const json = await response.json();
-    console.log(json);
+
+    if (process.env.NODE_ENV !== 'production') {
+        console.log(json);
+    }
 
     let photo = json.items[0];
     if (date) {
         const targetPublishDate = moment(date).format('MMMM D, Y');
         photo = json.items.find(item => item.publishDate === targetPublishDate);
     }
-    console.log(photo);
+
+    if (process.env.NODE_ENV !== 'production') {
+        console.log(photo);
+    }
 
     let smallPath;
     let largePath;
