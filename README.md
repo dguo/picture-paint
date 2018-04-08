@@ -6,7 +6,11 @@ The theme automatically updates every day, and you can click the toolbar button
 to see the picture and click through to the National Geographic page. You can
 also view [past
 pictures](https://www.nationalgeographic.com/photography/photo-of-the-day/archive/)
-and themes by changing the date in the popup. Available in [Firefox
+and themes by changing the date in the popup. If you'd like to turn off the
+automatic updates and keep the theme on a particular date, change the setting
+in the extension's preferences page.
+
+Picture Paint is available in [Firefox
 Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/).
 
 The color palette is determined by [color
@@ -21,6 +25,9 @@ Popup coloring:
 ---
 Scroll for picture details:
 ![picture details](https://i.imgur.com/22etI5f.png)
+---
+Preferences:
+![preferences](https://i.imgur.com/oHdTDf7.png)
 ---
 ![lightning](https://i.imgur.com/FvIy7CI.png)
 ---
