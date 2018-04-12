@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Picture Paint",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "author": "Danny Guo",
     "homepage_url": "https://github.com/dguo/picture-paint",
     "applications": {
