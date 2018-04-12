@@ -17,6 +17,11 @@ The color palette is determined by [color
 quantization](https://en.wikipedia.org/wiki/Color_quantization)
 using the [image-q](https://github.com/ibezkrovnyi/image-quantization) package.
 
+Picture Paint was originally created for the [Firefox Quantum Extensions
+Challenge](https://extensionschallenge.com/). I wrote a [blog
+post](https://www.dannyguo.com/blog/building-dynamic-firefox-themes/) detailing
+my experience.
+
 ## Gallery
 ![lava](https://i.imgur.com/uSqHCKQ.png)
 ---
