@@ -1,12 +1,34 @@
+const moment = require('moment');
 const paint = require('./paint');
 
-async function updateTheme(date) {
+/* We want to minimize the impact of running this extension, so don't
+   hit the Nat Geo API if the date hasn't changed. Even if we are on a new
+   date, don't process the image (which is expensive) if the publishDate hasn't
+   changed. Use the force flag to bypass these checks. */
+async function updateTheme(date, force) {
+    let publishDate;
+
+    if (!force) {
+        const items = await browser.storage.local.get('picture');
+        if (items.picture) {
+            publishDate = items.picture.publishDate;
+            if (publishDate === moment().format('YYYY-MM-DD')) {
+                return;
+            }
+        }
+    }
+
     const picture = await paint.getNatGeoPhoto(date);
+
+    if (!force && picture.publishDate === publishDate) {
+        return;
+    }
+
     await paint.setTheme(picture);
 }
 
 function createAlarm() {
-    return browser.alarms.create('updateTheme', {periodInMinutes: 240});
+    return browser.alarms.create('updateTheme', {periodInMinutes: 10});
 }
 
 (async function init() {
@@ -15,7 +37,7 @@ function createAlarm() {
         await createAlarm();
     }
 
-    updateTheme(items.lockDate);
+    updateTheme(items.lockDate, true);
 })();
 
 browser.alarms.onAlarm.addListener(() => {
