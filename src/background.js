@@ -53,3 +53,10 @@ browser.storage.onChanged.addListener(changes => {
         }
     }
 });
+
+browser.windows.onCreated.addListener(async window => {
+    const items = await browser.storage.local.get('theme');
+    if (items.theme) {
+        browser.theme.update(window.id, items.theme);
+    }
+});

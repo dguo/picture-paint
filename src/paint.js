@@ -88,7 +88,7 @@ async function setTheme(picture) {
     };
 
     await browser.theme.update(theme);
-    await browser.storage.local.set({picture});
+    await browser.storage.local.set({picture, theme});
 }
 
 module.exports = {
