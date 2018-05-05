@@ -65,8 +65,11 @@ async function setTheme(picture) {
     const palette = await iq.buildPalette([pointContainer], {colors: 4});
     const points = palette._pointArray;
     const firstColor = pointToRgb(points[0]);
+    const firstColorContrast = fontColorContrast(firstColor);
     const secondColor = pointToRgb(points[1]);
+    const secondColorContrast = fontColorContrast(secondColor);
     const thirdColor = pointToRgb(points[2]);
+    const thirdColorContrast = fontColorContrast(thirdColor);
     const fourthColor = pointToRgb(points[3]);
 
     const theme = {
@@ -74,15 +77,16 @@ async function setTheme(picture) {
             accentcolor: firstColor,
             popup: thirdColor,
             popup_border: fourthColor,
-            popup_text: fontColorContrast(thirdColor),
+            popup_text: thirdColorContrast,
             tab_line: fourthColor,
-            textcolor: fontColorContrast(firstColor),
+            tab_loading: secondColorContrast,
+            textcolor: firstColorContrast,
             toolbar: secondColor,
             toolbar_bottom_separator: fourthColor,
             toolbar_field: thirdColor,
             toolbar_field_border: fourthColor,
-            toolbar_field_text: fontColorContrast(thirdColor),
-            toolbar_text: fontColorContrast(secondColor),
+            toolbar_field_text: thirdColorContrast,
+            toolbar_text: secondColorContrast,
             toolbar_top_separator: fourthColor
         }
     };
