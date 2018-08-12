@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import platform
 import os
 from subprocess import run
 import sys
@@ -8,9 +9,12 @@ import sys
 parser = argparse.ArgumentParser(prog='./dev')
 subparsers = parser.add_subparsers(metavar='<command>', title='commands')
 
-DOCKER_RUN = ['docker', 'run', '--init', '-it', '--rm',
-              '-u', f'{os.getuid()}:{os.getgid()}',
-              '-v', f'{os.getcwd()}:/src:cached', '-w=/src',
+DOCKER_RUN = ['docker', 'run', '--init', '-it', '--rm']
+
+if platform.system() == 'Linux':
+    DOCKER_RUN += ['-u', f'{os.getuid()}:{os.getgid()}']
+
+DOCKER_RUN += ['-v', f'{os.getcwd()}:/src:cached', '-w=/src',
               'node:8.10.0-alpine']
 
 def command(help):
