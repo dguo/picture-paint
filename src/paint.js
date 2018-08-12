@@ -41,18 +41,24 @@ async function getNatGeoPhoto(date) {
         [smallPath, largePath] = getSizePaths(photo.sizes);
     }
 
-    return {
+    const details = {
         altText: photo.altText,
         caption: photo.caption,
         credit: photo.credit,
-        smallImageUrl: smallPath ? `${photo.url}${smallPath}` : photo.url,
-        largeImageUrl: largePath ? `${photo.url}${largePath}` : photo.url,
+        smallImageUrl: smallPath
+            ? `${smallPath.startsWith(photo.url) ? '' : photo.url}${smallPath}`
+            : photo.url,
+        largeImageUrl: largePath
+            ? `${largePath.startsWith(photo.url) ? '' : photo.url}${largePath}`
+            : photo.url,
         pageUrl: photo.pageUrl,
         publishDate: moment(photo.publishDate, 'MMMM D, Y').format(
             'YYYY-MM-DD'
         ),
         title: photo.title
     };
+
+    return details;
 }
 
 function pointToRgb(point) {
