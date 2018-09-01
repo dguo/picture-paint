@@ -37,7 +37,7 @@
     "devDependencies": {
         "eslint": "^4.19.1",
         "eslint-config-prettier": "^2.9.0",
-        "prettier": "^1.14.0",
+        "prettier": "^1.14.2",
         "web-ext": "^2.8.0",
         "webpack": "^4.16.3",
         "webpack-cli": "^3.1.0"
