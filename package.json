@@ -32,7 +32,7 @@
         "image-q": "^2.1.2",
         "moment": "^2.22.2",
         "pikaday": "^1.8.0",
-        "xss": "^1.0.3"
+        "xss": "^1.0.6"
     },
     "devDependencies": {
         "eslint": "^5.8.0",
