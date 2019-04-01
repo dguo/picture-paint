@@ -28,7 +28,7 @@
     },
     "dependencies": {
         "font-color-contrast": "^1.0.3",
-        "image-promise": "^5.0.1",
+        "image-promise": "^6.0.2",
         "image-q": "^2.1.2",
         "moment": "^2.22.2",
         "pikaday": "^1.8.0",
