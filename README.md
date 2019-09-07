@@ -1,4 +1,8 @@
-# Picture Paint [![Build Status](https://travis-ci.org/dguo/picture-paint.svg?branch=master)](https://travis-ci.org/dguo/picture-paint)
+# Picture Paint
+
+[![Mozilla Add-on](https://img.shields.io/amo/v/picture-paint)](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/)
+[![Build Status](https://travis-ci.org/dguo/picture-paint.svg?branch=master)](https://travis-ci.org/dguo/picture-paint)
+
 A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
 that uses the color palette of the current [National Geographic Photo of the Day](https://www.nationalgeographic.com/photography/photo-of-the-day/).
@@ -23,6 +27,7 @@ post](https://www.dannyguo.com/blog/building-dynamic-firefox-themes/) detailing
 my experience.
 
 ## Gallery
+
 ![lava](https://i.imgur.com/uSqHCKQ.png)
 ---
 Popup coloring:
@@ -49,6 +54,7 @@ Preferences:
 ![Golden Gate Bridge](https://i.imgur.com/g3bfzRd.png)
 
 ## Installation
+
 Firefox 60 and above is required. Install the extension from the
 [Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/) page.
 It might take a few seconds to process the image and then apply the theme.
@@ -62,6 +68,7 @@ permission that I can use instead. Nevertheless, Picture Paint does not read
 your browsing history or send your data anywhere.
 
 ## Build Instructions
+
 I use the Node version specified in `.nvmrc`. Run `$ yarn install && yarn run
 build:release`. This should generate the final JavaScript files and place
 them in `extension/js`.
@@ -73,6 +80,7 @@ If you have Python 3 and Docker, you can also run `$ ./dev` for a development
 CLI.
 
 ## Other Themes
+
 * [Chromatastic](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/): continuously cycles through colors
 * [Color Tailor](https://addons.mozilla.org/en-US/firefox/addon/color-tailor/): changes the theme to the current website's "primary" color
 * [Containers Theme](https://addons.mozilla.org/en-US/firefox/addon/containers-theme/): changes the theme color to match the active [container tab](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
@@ -80,4 +88,5 @@ CLI.
 * [Gradientus](https://addons.mozilla.org/en-US/firefox/addon/gradientus/): also changes colors based on the time of day
 
 ## License
+
 [MIT](https://github.com/dguo/picture-paint/blob/master/LICENSE)
