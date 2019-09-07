@@ -55,7 +55,7 @@ Preferences:
 
 ## Installation
 
-Firefox 60 and above is required. Install the extension from the
+Firefox 63 and above is required. Install the extension from the
 [Add-ons](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/) page.
 It might take a few seconds to process the image and then apply the theme.
 
