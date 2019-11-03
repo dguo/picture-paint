@@ -109,7 +109,7 @@ async function loadPicture() {
         // 2018-10-16 is an example of a credit that starts with "Photograph by"
         document.getElementById(
             'credit'
-        ).innerText = `by ${picture.credit.replace('Photograph by', '')}`;
+        ).innerText = `by ${picture.credit.replace(/photograph by/i, '')}`;
     }
 
     const image = document.getElementById('image');

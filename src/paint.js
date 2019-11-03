@@ -7,17 +7,10 @@ const moment = require('moment');
 // a Picture of the Day for every day.
 const MIN_DATE = moment('2010-08-01');
 
-function getSizePaths(sizes) {
-    const sorted = Object.keys(sizes).sort((a, b) => parseInt(a) - parseInt(b));
-    const smallPath = sizes[sorted[0]];
-    const largePath = sizes[sorted[sorted.length - 1]];
-    return [smallPath, largePath];
-}
-
 // If provided, the date should be in 'yyyy-mm-dd' format
 async function getNatGeoPhoto(date) {
-    const yearAndMonth = date ? `.${date.substring(0, 8)}` : '';
-    const url = `https://www.nationalgeographic.com/photography/photo-of-the-day/_jcr_content/.gallery${yearAndMonth}.json`;
+    const yearAndMonth = date ? `.${date.substring(0, 7)}` : '';
+    const url = `https://www.nationalgeographic.com/content/photography/en_US/photo-of-the-day/_jcr_content/.gallery${yearAndMonth}.json`;
     const response = await fetch(url);
     const json = await response.json();
 
@@ -35,27 +28,18 @@ async function getNatGeoPhoto(date) {
         console.log(photo);
     }
 
-    let smallPath;
-    let largePath;
-    if (photo.sizes) {
-        [smallPath, largePath] = getSizePaths(photo.sizes);
-    }
-
     const details = {
-        altText: photo.altText,
-        caption: photo.caption,
-        credit: photo.credit,
-        smallImageUrl: smallPath
-            ? `${smallPath.startsWith(photo.url) ? '' : photo.url}${smallPath}`
-            : photo.url,
-        largeImageUrl: largePath
-            ? `${largePath.startsWith(photo.url) ? '' : photo.url}${largePath}`
-            : photo.url,
+        altText: photo.image.alt_text,
+        caption: photo.image.caption,
+        credit: photo.image.credit,
+        smallImageUrl: photo.image.renditions[0].uri,
+        largeImageUrl:
+            photo.image.renditions[photo.image.renditions.length - 1].uri,
         pageUrl: photo.pageUrl,
         publishDate: moment(photo.publishDate, 'MMMM D, Y').format(
             'YYYY-MM-DD'
         ),
-        title: photo.title
+        title: photo.image.title
     };
 
     return details;

@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix retrieving images.
+
 ## [0.6.0] - 2019-09-07
 
 ### Fixed

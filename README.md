@@ -73,6 +73,9 @@ I use the Node version specified in `.nvmrc`. Run `$ yarn install && yarn run
 build:release`. This should generate the final JavaScript files and place
 them in `extension/js`.
 
+Load the development build using
+[about:debugging](about:debugging#/runtime/this-firefox).
+
 To generate a ZIP file for uploading to [Add-ons](https://addons.mozilla.org/),
 run `$ yarn run release`.
 
