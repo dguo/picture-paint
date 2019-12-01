@@ -1,7 +1,7 @@
 # Picture Paint
 
 [![Mozilla Add-on](https://img.shields.io/amo/v/picture-paint)](https://addons.mozilla.org/en-US/firefox/addon/picture-paint/)
-[![Build Status](https://travis-ci.org/dguo/picture-paint.svg?branch=master)](https://travis-ci.org/dguo/picture-paint)
+[![CI status](https://github.com/dguo/picture-paint/workflows/CI/badge.svg)](https://github.com/dguo/picture-paint/actions?query=branch%3Amaster)
 
 A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
