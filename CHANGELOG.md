@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.6.2] - 2021-02-21
+
+### Fixed
+
+- Fix retrieving images.
+
 ## [0.6.1] - 2019-11-03
 
 ### Fixed
@@ -89,7 +95,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Initial implementation
 
-[Unreleased]: https://github.com/dguo/picture-paint/compare/v0.6.1...HEAD
+[Unreleased]: https://github.com/dguo/picture-paint/compare/v0.6.2...HEAD
+[0.6.2]: https://github.com/dguo/picture-paint/compare/v0.6.1...v0.6.2
 [0.6.1]: https://github.com/dguo/picture-paint/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/dguo/picture-paint/compare/v0.5.2...v0.6.0
 [0.5.2]: https://github.com/dguo/picture-paint/compare/v0.5.1...v0.5.2
