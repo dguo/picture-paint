@@ -30,13 +30,17 @@ async function getNatGeoPhoto(date) {
         console.log(photo);
     }
 
+    const splitUri = photo.image.uri.split("/");
+    const imageUrl = `https://i.natgeofe.com/n/${photo.image.id}/${
+        splitUri[splitUri.length - 1]
+    }`;
+
     const details = {
         altText: photo.image.alt_text,
         caption: photo.image.caption,
         credit: photo.image.credit,
-        smallImageUrl: photo.image.renditions[0].uri,
-        largeImageUrl:
-            photo.image.renditions[photo.image.renditions.length - 1].uri,
+        smallImageUrl: `${imageUrl}?w=200`,
+        largeImageUrl: `${imageUrl}?w=1000`,
         pageUrl: photo.pageUrl,
         publishDate: moment(photo.publishDate, "MMMM D, Y").format(
             "YYYY-MM-DD"
