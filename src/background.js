@@ -1,5 +1,5 @@
-const moment = require('moment');
-const paint = require('./paint');
+const moment = require("moment");
+const paint = require("./paint");
 
 /* We want to minimize the impact of running this extension, so don't
    hit the Nat Geo API if the date hasn't changed. Even if we are on a new
@@ -9,10 +9,10 @@ async function updateTheme(date, force) {
     let publishDate;
 
     if (!force) {
-        const items = await browser.storage.local.get('picture');
+        const items = await browser.storage.local.get("picture");
         if (items.picture) {
             publishDate = items.picture.publishDate;
-            if (publishDate === moment().format('YYYY-MM-DD')) {
+            if (publishDate === moment().format("YYYY-MM-DD")) {
                 return;
             }
         }
@@ -28,11 +28,11 @@ async function updateTheme(date, force) {
 }
 
 function createAlarm() {
-    return browser.alarms.create('updateTheme', {periodInMinutes: 10});
+    return browser.alarms.create("updateTheme", {periodInMinutes: 10});
 }
 
 (async function init() {
-    const items = await browser.storage.local.get('lockDate');
+    const items = await browser.storage.local.get("lockDate");
     if (!items.lockDate) {
         await createAlarm();
     }
@@ -44,8 +44,8 @@ browser.alarms.onAlarm.addListener(() => {
     updateTheme();
 });
 
-browser.storage.onChanged.addListener(changes => {
-    if (Object.prototype.hasOwnProperty.call(changes, 'lockDate')) {
+browser.storage.onChanged.addListener((changes) => {
+    if (Object.prototype.hasOwnProperty.call(changes, "lockDate")) {
         if (changes.lockDate.newValue) {
             browser.alarms.clearAll();
         } else {
@@ -54,8 +54,8 @@ browser.storage.onChanged.addListener(changes => {
     }
 });
 
-browser.windows.onCreated.addListener(async window => {
-    const items = await browser.storage.local.get('theme');
+browser.windows.onCreated.addListener(async (window) => {
+    const items = await browser.storage.local.get("theme");
     if (items.theme) {
         browser.theme.update(window.id, items.theme);
     }

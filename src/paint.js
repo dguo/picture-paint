@@ -1,30 +1,32 @@
-const fontColorContrast = require('font-color-contrast');
-const iq = require('image-q');
-const loadImage = require('image-promise');
-const moment = require('moment');
+const fontColorContrast = require("font-color-contrast");
+const iq = require("image-q");
+const loadImage = require("image-promise");
+const moment = require("moment");
 
 // It seems like before this date, months don't reliably have
 // a Picture of the Day for every day.
-const MIN_DATE = moment('2010-08-01');
+const MIN_DATE = moment("2010-08-01");
 
 // If provided, the date should be in 'yyyy-mm-dd' format
 async function getNatGeoPhoto(date) {
-    const yearAndMonth = date ? `.${date.substring(0, 7)}` : '';
+    const yearAndMonth = date ? `.${date.substring(0, 7)}` : "";
     const url = `https://www.nationalgeographic.com/content/photography/en_US/photo-of-the-day/_jcr_content/.gallery${yearAndMonth}.json`;
     const response = await fetch(url);
     const json = await response.json();
 
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== "production") {
         console.log(json);
     }
 
     let photo = json.items[0];
     if (date) {
-        const targetPublishDate = moment(date).format('MMMM D, Y');
-        photo = json.items.find(item => item.publishDate === targetPublishDate);
+        const targetPublishDate = moment(date).format("MMMM D, Y");
+        photo = json.items.find(
+            (item) => item.publishDate === targetPublishDate
+        );
     }
 
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== "production") {
         console.log(photo);
     }
 
@@ -36,8 +38,8 @@ async function getNatGeoPhoto(date) {
         largeImageUrl:
             photo.image.renditions[photo.image.renditions.length - 1].uri,
         pageUrl: photo.pageUrl,
-        publishDate: moment(photo.publishDate, 'MMMM D, Y').format(
-            'YYYY-MM-DD'
+        publishDate: moment(photo.publishDate, "MMMM D, Y").format(
+            "YYYY-MM-DD"
         ),
         title: photo.image.title
     };

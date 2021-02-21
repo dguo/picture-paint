@@ -1,3 +1,3 @@
 module.exports = {
-    sourceDir: 'extension'
+    sourceDir: "extension"
 };

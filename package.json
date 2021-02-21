@@ -8,7 +8,7 @@
     "private": true,
     "author": {
         "name": "Danny Guo",
-        "email": "dannyguo91@gmail.com",
+        "email": "danny@dannyguo.com",
         "url": "https://dannyguo.com"
     },
     "repository": {
@@ -30,17 +30,17 @@
         "font-color-contrast": "^1.0.3",
         "image-promise": "^6.0.2",
         "image-q": "^2.1.2",
-        "moment": "^2.24.0",
+        "moment": "^2.29.1",
         "pikaday": "^1.8.0",
-        "xss": "^1.0.6"
+        "xss": "^1.0.8"
     },
     "devDependencies": {
-        "eslint": "^6.6.0",
-        "eslint-config-prettier": "^6.5.0",
-        "prettier": "^1.18.2",
+        "eslint": "^7.20.0",
+        "eslint-config-prettier": "^8.0.0",
+        "prettier": "^2.2.1",
         "web-ext": "^3.2.0",
-        "webpack": "^4.41.2",
-        "webpack-cli": "^3.3.10"
+        "webpack": "^5.23.0",
+        "webpack-cli": "^4.5.0"
     },
     "eslintConfig": {
         "env": {
@@ -64,7 +64,7 @@
     },
     "prettier": {
         "bracketSpacing": false,
-        "singleQuote": true,
-        "tabWidth": 4
+        "tabWidth": 4,
+        "trailingComma": "none"
     }
 }
