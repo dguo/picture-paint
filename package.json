@@ -30,7 +30,7 @@
         "font-color-contrast": "^1.0.3",
         "image-promise": "^6.0.2",
         "image-q": "^2.1.2",
-        "moment": "^2.29.1",
+        "moment": "^2.29.4",
         "pikaday": "^1.8.0",
         "xss": "^1.0.8"
     },
